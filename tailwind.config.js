@@ -9,9 +9,12 @@ module.exports = {
         'bud-green': '#7aa65a',
       },
       backgroundImage: {
-        'sky-banner': "url('img/sky-banner.png')",
+        'sky-banner': "url('../public/img/sky-banner.png')",
       }
     },
+  },
+  variants: {
+    fill: ['hover', 'focus'],
   },
   plugins: [],
 }
