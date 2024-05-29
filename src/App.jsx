@@ -1,7 +1,7 @@
 import Link from './Components/Link';
-import Product from './Components/Product';
 import CartModal from './Components/CartModal';
 import HeroSection from './Components/HeroSection';
+import ProductSection from './Components/ProductSection';
 
 export default function App() {
 
@@ -26,26 +26,7 @@ export default function App() {
       <div className="text-center pt-10">
         <h1 className="font-bold text-4xl mb-4 text-bud-green">Featured Collection</h1>
       </div>
-      <section className="w-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-        <div className="swiper-pagination">
-          <Product id='1' productImg='/img/product-2.png' price='176.98'></Product>
-          <Product id='2' productImg='/img/product-3.png' price='186.27'></Product>
-          <Product id='3' productImg='/img/product-4.png' price='162.35'></Product>
-          <Product id='4' productImg='/img/product-5.png' price='140.03'></Product>
-          <Product id='5' productImg='/img/product-2.png' price='152.45'></Product>
-          <Product id='6' productImg='/img/product-3.png' price='166.96'></Product>
-          <Product id='7' productImg='/img/product-4.png' price='190.18'></Product>
-          <Product id='8' productImg='/img/product-5.png' price='120.83'></Product>
-
-          <Product id='9' productImg='/img/product-4.png' price='590.18'></Product>
-          <Product id='10' productImg='/img/product-3.png' price='666.96'></Product>
-          <Product id='11' productImg='/img/product-2.png' price='752.45'></Product>
-          <Product id='12' productImg='/img/product-5.png' price='540.03'></Product>
-          <Product id='13' productImg='/img/product-4.png' price='862.35'></Product>
-          <Product id='14' productImg='/img/product-3.png' price='686.27'></Product>
-          <Product id='15' productImg='/img/product-2.png' price='776.98'></Product>
-        </div>
-      </section>
+      <ProductSection></ProductSection>
     </div>
   )
 }
