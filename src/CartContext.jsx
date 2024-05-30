@@ -16,7 +16,7 @@ export const CartProvider = ({children}) => {
 
   const removeFromCart = (index) => {
     cartItems.splice(index, 1);
-    getCartTotal();alert(1);
+    getCartTotal();
   };
 
   const getCartTotal = () => {
