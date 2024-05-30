@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 
+import CartContext from '../CartContext';
+
 export default function CartModal() {
 
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => setShowModal(!showModal);
-
-  const isCartEmpty = true; // cartItems.length === 0;
+  const {cartItems, showModal, setShowModal, getCartTotal, removeFromCart, toggleModal} = useContext(CartContext);
+  const cartNotEmpty = Array.isArray(cartItems) && cartItems.length !== 0;
 
   return (
     <>
@@ -25,24 +24,26 @@ export default function CartModal() {
                     <button className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onClick={() => setShowModal(false)}></button>
                   </div>
 
-                  <div id="cart-body" className="flex items-center justify-between">
-                    {isCartEmpty ? (
-                    <img src="/img/empty-cart.png" className="w-100 h-80 rounded-lg border-t border-solid"/>
+                    {!cartNotEmpty ? (
+                      <img src="/img/empty-cart.png" className="w-100 h-80 rounded-lg border-t border-solid"/>
                     ) : (
-                    <div className="flex items-start py-4 px-6 border-t border-solid">
-                      <img src="/img/product-2.png" className="w-25 h-20 rounded-lg pr-10"/>
-                      <div className="ml-auto">
-                        <p className="text-black mt-4">$9.99</p>
-                      </div>
-                      <div className="pl-20"><button className="mt-4 py-2 px-4 bg-red-600 hover:bg-red-500 text-white rounded-lg">Remove</button></div>
-                    </div>
-                    )}
-                  </div>
-
-                  <div className="flex items-center justify-between p-6 border-t border-solid">
-                    <div className="text-black font-bold">Total: $9.99</div>
-                    <PrimaryButton value='Check Out'></PrimaryButton>
-                  </div>
+                      <>{cartItems.map((item, index) =>
+                        <div id="cart-body" className="flex items-center justify-between">
+                          <div className="flex items-start py-4 px-6 border-t border-solid">
+                            <img src={item.productImg} className="w-25 h-20 rounded-lg pr-10"/>
+                            <div className="ml-auto">
+                              <p className="text-black mt-4">${item.price}</p>
+                            </div>
+                            <div className="pl-20"><button onClick={() => {removeFromCart(index);toggleModal();}} className="mt-4 py-2 px-4 bg-red-600 hover:bg-red-500 text-white rounded-lg">Remove</button></div>
+                          </div>
+                        </div>
+                        )}
+                        <div className="flex items-center justify-between p-6 border-t border-solid">
+                          <div className="text-black font-bold">Total: ${getCartTotal()}</div>
+                          <PrimaryButton value='Check Out'></PrimaryButton>
+                        </div>
+                      </>
+                  )}
                   <div className="flex items-center justify-end p-10 border-t border-solid rounded-b">
                     <SecondaryButton value='Continue Shopping' onClick={toggleModal}></SecondaryButton>
                   </div>
@@ -51,6 +52,6 @@ export default function CartModal() {
             </div>
           </>
         ) : null}
-      </>
-    );
+    </>
+  );
 }

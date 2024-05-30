@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CartContext from '../CartContext';
 
 export default function Product({ id = '', productImg = '', price = ''}) {
 
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (id, price, productImg) => {
-    cartItems.push({ id, price, productImg });
-    setCartItems([...cartItems]);
-  };
+  const { addToCart, toggleModal } = useContext(CartContext);
 
   return (
     <div key={id} className="w-62 bg-white shadow rounded-xl duration-500 hover:scale-105">
@@ -16,7 +12,7 @@ export default function Product({ id = '', productImg = '', price = ''}) {
           <div className="flex items-center">
             <p className="text-lg font-semibold text-black my-3">${price}</p>
             <div className="ml-auto">
-              <button onClick={() => addToCart(id, price, productImg)} className="uppercase py-2 px-2 rounded-lg bg-bud-green border-2 text-white text-md mr-4 hover:bg-lime-300">Buy Now</button>
+              <button onClick={() => {addToCart({id, price, productImg}); toggleModal();}} className="uppercase py-2 px-2 rounded-lg bg-bud-green border-2 text-white text-md mr-4 hover:bg-lime-300">Buy Now</button>
             </div>
           </div>
       </div>
