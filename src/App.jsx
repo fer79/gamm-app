@@ -3,9 +3,12 @@ import CartModal from './Components/CartModal';
 import HeroSection from './Components/HeroSection';
 import ProductSection from './Components/ProductSection';
 
+import { CartProvider } from './CartContext';
+
 export default function App() {
 
   return (
+    <CartProvider>
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-white">
       <div className="text-white bg-bud-green text-center">30% OFF ALL ORDERS UNTIL 4/27</div>
       <nav className="flex flex-wrap justify-center text-bud-green py-4">
@@ -28,5 +31,6 @@ export default function App() {
       </div>
       <ProductSection></ProductSection>
     </div>
+    </CartProvider>
   )
 }

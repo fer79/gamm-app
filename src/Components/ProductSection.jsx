@@ -1,5 +1,5 @@
 import Product from './Product';
-
+import "../index.css";
 import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
 
@@ -10,18 +10,17 @@ export default function ProductSection() {
     <Product id='2' productImg='/img/product-3.png' price='186.27'></Product>,
     <Product id='3' productImg='/img/product-4.png' price='162.35'></Product>,
     <Product id='4' productImg='/img/product-5.png' price='140.03'></Product>,
+    <Product id='9' productImg='/img/product-4.png' price='590.18'></Product>,
+    <Product id='12' productImg='/img/product-5.png' price='540.03'></Product>,
+    <Product id='11' productImg='/img/product-2.png' price='752.45'></Product>,
+    <Product id='10' productImg='/img/product-3.png' price='666.96'></Product>,
     <Product id='5' productImg='/img/product-2.png' price='152.45'></Product>,
     <Product id='6' productImg='/img/product-3.png' price='166.96'></Product>,
     <Product id='7' productImg='/img/product-4.png' price='190.18'></Product>,
     <Product id='8' productImg='/img/product-5.png' price='120.83'></Product>,
-  
-    <Product id='9' productImg='/img/product-4.png' price='590.18'></Product>,
-    <Product id='10' productImg='/img/product-3.png' price='666.96'></Product>,
-    <Product id='11' productImg='/img/product-2.png' price='752.45'></Product>,
-    <Product id='12' productImg='/img/product-5.png' price='540.03'></Product>,
     <Product id='13' productImg='/img/product-4.png' price='862.35'></Product>,
-    <Product id='14' productImg='/img/product-3.png' price='686.27'></Product>,
-    <Product id='15' productImg='/img/product-2.png' price='776.98'></Product>
+    <Product id='15' productImg='/img/product-2.png' price='776.98'></Product>,
+    <Product id='14' productImg='/img/product-3.png' price='686.27'></Product>
   ];
 
   const [page, setPage] = useState(0);
@@ -34,12 +33,13 @@ export default function ProductSection() {
       })
     );
   }, [page]);
+
   return (
     <>
       <section className="w-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {filterData && filterData.map((item, index) => <>{item}</>)}
       </section>
-      <div className="flex flex-wrap justify-center m-6">
+      <div className="flex justify-center m-6">
         <ReactPaginate
           containerClassName={"pagination"}
           activeClassName={"active"}
