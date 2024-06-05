@@ -34,7 +34,7 @@ export default function CartModal() {
                             <div className="ml-auto">
                               <p className="text-black mt-4">${item.price}</p>
                             </div>
-                            <div className="pl-20"><button onClick={() => {removeFromCart(index);toggleModal();}} className="mt-4 py-2 px-4 bg-red-600 hover:bg-red-500 text-white rounded-lg">Remove</button></div>
+                            <div className="pl-20"><button onClick={() => {removeFromCart(index);}} className="mt-4 py-2 px-4 bg-red-600 hover:bg-red-500 text-white rounded-lg">Remove</button></div>
                           </div>
                         </div>
                         )}
