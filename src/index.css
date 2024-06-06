@@ -15,21 +15,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 6px;
-  cursor: pointer;
-}
-
-.active {
-  background-color: #7aa65a;
-  border-radius: 100%;
-}
-
-.page-item {
-  padding: 2px 12px;
-  display: flex;
-}
