@@ -22,7 +22,7 @@ export default function ProductSection() {
             prevEl: '.prev',
         }}>
           <SwiperSlide>
-            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
+            <div className="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
               <Product id='1' productImg='/img/product-2.png' price='176.98'></Product>
               <Product id='2' productImg='/img/product-3.png' price='186.27'></Product>
               <Product id='3' productImg='/img/product-4.png' price='162.35'></Product>
@@ -34,7 +34,7 @@ export default function ProductSection() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
+            <div className="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
               <Product id='5' productImg='/img/product-2.png' price='152.45'></Product>
               <Product id='6' productImg='/img/product-3.png' price='166.96'></Product>
               <Product id='7' productImg='/img/product-4.png' price='190.18'></Product>
